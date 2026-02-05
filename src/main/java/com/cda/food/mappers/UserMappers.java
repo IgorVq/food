@@ -3,6 +3,7 @@ package com.cda.food.mappers;
 import java.util.List;
 
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
 import com.cda.food.dtos.UserRequestDTO;
 import com.cda.food.dtos.UserResponseDTO;
@@ -13,5 +14,7 @@ public interface UserMappers {
     UserResponseDTO toDto(User user);
     List<UserResponseDTO> toDtoList(List<User> user);
 
+    @Mapping(target = "id", ignore = true)
+    @Mapping(target = "recipes", ignore = true)
     User toEntity(UserRequestDTO userRequestDTO);
 }
