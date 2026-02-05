@@ -2,11 +2,11 @@ package com.cda.food.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.util.List;
@@ -16,32 +16,36 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "recipes")
-public class Recipe {
+@Table(name = "ingredients")
+public class Ingredient {
+    
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "ID")
     private Integer id;
 
-    @Column(name = "NAME", nullable = false)
-    private String name;
+    @Column(name = "LIBELLE", nullable = false)
+    private String libelle;
 
-    @Column(name = "PREPARATION_TIME", nullable = false)
-    private Integer preparationTime;
-
-    @Column(name = "COOKING_TIME", nullable = false)
-    private Integer cookingTime;
-
-    @Column(name = "SHARE", nullable = false)
-    private Boolean share;
+    @Column(name = "TYPE", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private IngredientType type;
 
     @Column(name = "CALORIE_COUNT", nullable = false)
     private Integer calorieCount;
 
-    @ManyToOne
-    @JoinColumn(name = "USER_ID", nullable = false)
-    private User user;
-
-    @OneToMany(mappedBy = "recipe")
+    @OneToMany(mappedBy = "ingredient")
     private List<RecipeIngredient> recipeIngredients;
+
+    public enum IngredientType {
+        LEGUME,
+        VIANDE,
+        POISSON,
+        FECULENT,
+        PRODUIT_LAITIER,
+        FRUIT,
+        EPICE,
+        HUILE,
+        AUTRE
+    }
 }

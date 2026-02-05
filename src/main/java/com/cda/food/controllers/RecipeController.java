@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cda.food.dtos.RecipeRequestDTO;
 import com.cda.food.dtos.RecipeResponseDTO;
-import com.cda.food.entities.Recipe;
 import com.cda.food.services.RecipeServices;
 
 import lombok.RequiredArgsConstructor;

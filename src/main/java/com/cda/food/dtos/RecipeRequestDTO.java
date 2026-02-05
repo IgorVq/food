@@ -5,5 +5,6 @@ public record RecipeRequestDTO (
     Integer preparationTime,
     Integer cookingTime,
     Boolean share,
+    Integer calorieCount,
     Integer userId
 ) {}
