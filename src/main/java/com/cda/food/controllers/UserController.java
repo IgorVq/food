@@ -3,7 +3,6 @@ package com.cda.food.controllers;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,11 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cda.food.dtos.UserRequestDTO;
 import com.cda.food.dtos.UserResponseDTO;
+import com.cda.food.entities.User;
 import com.cda.food.services.UserServices;
 
 import lombok.RequiredArgsConstructor;
 
-@Controller
 @RestController
 @RequestMapping(value = "/users", produces = "application/json")
 @RequiredArgsConstructor
@@ -53,5 +52,14 @@ public class UserController {
     public ResponseEntity<String> deleteUser(@PathVariable("id") Integer id) {
         userServices.deleteUser(id);
         return ResponseEntity.ok("User deleted successfully");
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<String> login(@RequestBody User user) {
+        String token = userServices.login(user);
+        if (token != null) {
+            return ResponseEntity.ok(token);
+        }
+        return ResponseEntity.status(401).body("Invalid credentials");
     }
 }
