@@ -107,7 +107,6 @@ public class RecipeServices {
             document.add(new Paragraph("Preparation time: " + recipe.preparationTime() + " min"));
             document.add(new Paragraph("Cooking time: " + recipe.cookingTime() + " min"));
             document.add(new Paragraph("Calories: " + recipe.calorieCount()));
-            document.add(new Paragraph("Share: " + recipe.share()));
             document.add(new Paragraph(" "));
             document.add(new Paragraph("Ingredients:"));
 

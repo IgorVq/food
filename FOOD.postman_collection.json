@@ -1,0 +1,656 @@
+{
+  "info": {
+    "_postman_id": "78f0ad47-d011-461b-bc0d-aa437ae90b5c",
+    "name": "FOOD",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "42654015"
+  },
+  "item": [
+    {
+      "name": "USERS",
+      "item": [
+        {
+          "name": "POST User Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"igor.verquain@gmail.com\",\n  \"password\": \"password\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}/users/login",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "users",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET Users",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/users",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET User",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/users/2",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "users",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST User",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"firstName\": \"Igor3\",\n    \"lastName\": \"Verquain3\",\n    \"email\": \"igor.verquain3@gmail.com\",\n    \"password\": \"password\",\n    \"phone\": \"0708090807\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}/users",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PATCH User",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"firstName\": \"Igor\",\n    \"lastName\": \"Verquain\",\n    \"email\": \"igor.verquain@gmail.com\",\n    \"password\": \"password\",\n    \"phone\": \"0708090807\",\n    \"role\": \"ADMIN\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}/users/3",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "users",
+                "3"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE User",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/users/3",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "users",
+                "3"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "RECIPES",
+      "item": [
+        {
+          "name": "GET Recipes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/recipes",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "recipes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET Recipe",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/recipes/2",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "recipes",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST Recipe",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Omelette Simple\",\n  \"preparationTime\": 5,\n  \"cookingTime\": 10,\n  \"share\": true,\n  \"calorieCount\": 280\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}/recipes",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "recipes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PATCH Recipe",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Pâtes Carbonara\",\n    \"preparationTime\": 10,\n    \"cookingTime\": 15,\n    \"calorieCount\": 100,\n    \"share\": true,\n    \"userId\": 3\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}/recipes/1",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "recipes",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE Recipe",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/recipes/1",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "recipes",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "INGREDIENTS",
+      "item": [
+        {
+          "name": "GET Ingredients",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/ingredients",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "ingredients"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET Ingredient",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/ingredients/1",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "ingredients",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST Ingredient",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"libelle\": \"Lait\",\n  \"type\": \"PRODUIT_LAITIER\",\n  \"calorieCount\": 42\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}/ingredients",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "ingredients"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PATCH Ingredient",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"libelle\": \"Tomate\",\n  \"type\": \"LEGUME\",\n  \"calorieCount\": 18\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}/ingredients/1",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "ingredients",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE Ingredient",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/ingredients/1",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "ingredients",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "RECIPE-INGREDIENTS",
+      "item": [
+        {
+          "name": "GET Recipe-ingredients",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/recipe-ingredients",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "recipe-ingredients"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET Recipe-ingredient",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/recipe-ingredients/1",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "recipe-ingredients",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST Recipe-ingredient",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"recipeId\": 2,\n  \"ingredientId\": 1,\n  \"quantity\": 150,\n  \"quantityType\": \"G\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}/recipe-ingredients",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "recipe-ingredients"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PATCH Recipe-ingredient",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"libelle\": \"Tomate\",\n  \"type\": \"LEGUME\",\n  \"calorieCount\": 18\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}/recipe-ingredients/1",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "recipe-ingredients",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE Recipe-ingredient",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/recipe-ingredients/1",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "recipe-ingredients",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "USER-FAVORITE-RECIPES",
+      "item": [
+        {
+          "name": "GET User-favorite-recipes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/user-favorite-recipes",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "user-favorite-recipes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET User-favorite-recipe",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/user-favorite-recipes/1",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "user-favorite-recipes",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST User-favorite-recipe",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"userId\": 19,\n    \"recipeId\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}/user-favorite-recipes",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "user-favorite-recipes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PATCH User-favorite-recipe",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"libelle\": \"Tomate\",\n  \"type\": \"LEGUME\",\n  \"calorieCount\": 18\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}/user-favorite-recipes/1",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "user-favorite-recipes",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE User-favorite-recipe",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/user-favorite-recipes/1",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "user-favorite-recipes",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "PDF",
+      "item": [
+        {
+          "name": "GET Recipe PDF",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/recipes/2/pdf",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "recipes",
+                "2",
+                "pdf"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJpZ29yLnZlcnF1YWluQGdtYWlsLmNvbSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTc3MjcyNDE3MiwiZXhwIjoxNzcyNzI3NzcyfQ.o-0QvPLGifgVr4C-Orfa0jf6m5eTma2XsXpBTWxc3sQ",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "URL",
+      "value": ""
+    }
+  ]
+}

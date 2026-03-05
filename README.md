@@ -34,6 +34,11 @@ API disponible sur `http://localhost:8081`.
 ## Postman
 - Importer la collection `food.postman_collection.json` dans Postman pour tester rapidement les endpoints.
 
+## Valeurs enum
+- `role` (User): `ADMIN`, `USER`
+- `type` (Ingredient): `LEGUME`, `VIANDE`, `POISSON`, `FECULENT`, `PRODUIT_LAITIER`, `FRUIT`, `EPICE`, `HUILE`, `AUTRE`
+- `quantityType` (RecipeIngredient): `UNITE`, `G`, `CL`
+
 ## Premiere connexion
 - Endpoint login: `POST /users/login`
 - Le role admin peut etre attribue directement en base de donnees si necessaire.
