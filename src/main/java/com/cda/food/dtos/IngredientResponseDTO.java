@@ -6,5 +6,6 @@ public record IngredientResponseDTO (
     Integer id,
     String libelle,
     IngredientType type,
-    Integer calorieCount
+    Integer calorieCount,
+    Integer userId
 ) {}

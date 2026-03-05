@@ -7,6 +7,8 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.util.List;
@@ -33,6 +35,10 @@ public class Ingredient {
 
     @Column(name = "CALORIE_COUNT", nullable = false)
     private Integer calorieCount;
+
+    @ManyToOne
+    @JoinColumn(name = "USER_ID")
+    private User user;
 
     @OneToMany(mappedBy = "ingredient")
     private List<RecipeIngredient> recipeIngredients;

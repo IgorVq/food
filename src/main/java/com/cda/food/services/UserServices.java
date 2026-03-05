@@ -33,6 +33,7 @@ public class UserServices {
 
     public void createUser(UserRequestDTO userRequestDTO) {
         User user = userMappers.toEntity(userRequestDTO);
+        user.setRole(User.Role.USER);
         user.setPassword(PasswordUtil.encode(user.getPassword()));
         userRepository.save(user);
     }

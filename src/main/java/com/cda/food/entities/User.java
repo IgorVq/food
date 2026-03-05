@@ -47,6 +47,9 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Recipe> recipes;
 
+    @OneToMany(mappedBy = "user")
+    private List<Ingredient> ingredients;
+
     public enum Role {
         ADMIN,
         USER
