@@ -1,10 +1,12 @@
 package com.cda.food.services;
 
+import java.io.ByteArrayOutputStream;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import com.cda.food.dtos.IngredientWithQuantityDTO;
 import com.cda.food.dtos.RecipeRequestDTO;
 import com.cda.food.dtos.RecipeResponseDTO;
 import com.cda.food.entities.Recipe;
@@ -12,10 +14,15 @@ import com.cda.food.entities.User;
 import com.cda.food.mappers.RecipeMappers;
 import com.cda.food.repositories.RecipeRepository;
 import com.cda.food.repositories.UserRepository;
+import com.lowagie.text.Document;
+import com.lowagie.text.DocumentException;
+import com.lowagie.text.Paragraph;
+import com.lowagie.text.pdf.PdfWriter;
 
 import lombok.RequiredArgsConstructor;
 
 import static org.springframework.http.HttpStatus.FORBIDDEN;
+import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
 import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 @Service
@@ -83,5 +90,40 @@ public class RecipeServices {
             throw new ResponseStatusException(FORBIDDEN, "You cannot delete another user's recipe");
         }
         recipeRepository.deleteById(id);
+    }
+
+    public byte[] generateRecipePdf(Integer id) {
+        RecipeResponseDTO recipe = getRecipeById(id);
+
+        try {
+            ByteArrayOutputStream output = new ByteArrayOutputStream();
+            Document document = new Document();
+            PdfWriter.getInstance(document, output);
+            document.open();
+
+            document.add(new Paragraph("Recipe"));
+            document.add(new Paragraph(" "));
+            document.add(new Paragraph("Name: " + recipe.name()));
+            document.add(new Paragraph("Preparation time: " + recipe.preparationTime() + " min"));
+            document.add(new Paragraph("Cooking time: " + recipe.cookingTime() + " min"));
+            document.add(new Paragraph("Calories: " + recipe.calorieCount()));
+            document.add(new Paragraph("Share: " + recipe.share()));
+            document.add(new Paragraph(" "));
+            document.add(new Paragraph("Ingredients:"));
+
+            if (recipe.ingredients() == null || recipe.ingredients().isEmpty()) {
+                document.add(new Paragraph("- No ingredient"));
+            } else {
+                for (IngredientWithQuantityDTO ingredient : recipe.ingredients()) {
+                    String line = "- " + ingredient.libelle() + ": " + ingredient.quantity() + " " + ingredient.quantityType();
+                    document.add(new Paragraph(line));
+                }
+            }
+
+            document.close();
+            return output.toByteArray();
+        } catch (DocumentException e) {
+            throw new ResponseStatusException(INTERNAL_SERVER_ERROR, "Unable to generate pdf");
+        }
     }
 }

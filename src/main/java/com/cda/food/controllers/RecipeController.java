@@ -2,6 +2,8 @@ package com.cda.food.controllers;
 
 import java.util.List;
 
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -35,6 +37,15 @@ public class RecipeController {
     @GetMapping("/{id}")
     public ResponseEntity<RecipeResponseDTO> getRecipeById(@PathVariable("id") Integer id) {
         return ResponseEntity.ok(recipeServices.getRecipeById(id));
+    }
+
+    @GetMapping(value = "/{id}/pdf", produces = "application/pdf")
+    public ResponseEntity<byte[]> getRecipePdf(@PathVariable("id") Integer id) {
+        byte[] pdf = recipeServices.generateRecipePdf(id);
+        return ResponseEntity.ok()
+            .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=recipe-" + id + ".pdf")
+            .contentType(MediaType.APPLICATION_PDF)
+            .body(pdf);
     }
 
     @PutMapping("/{id}")
